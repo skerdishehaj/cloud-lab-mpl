@@ -26,6 +26,12 @@ jobs:
         run: mvn clean package
 
       - name: Run application tests
+        env:
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: mvn test
 
       - name: Login to DockerHub
