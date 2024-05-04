@@ -25,6 +25,9 @@ jobs:
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: mvn clean package
 
+      - name: Run application tests
+        run: mvn test
+
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
